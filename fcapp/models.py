@@ -11,12 +11,6 @@ from django.db import models
 
 
 
-
-                
-
-
-
-
 class User_Profile(AbstractUser):
     
     email= models.CharField(max_length=40,blank=True,null=True, unique=True)
@@ -65,3 +59,46 @@ class User_Profile(AbstractUser):
 
 
         super().save(*args, **kwargs)
+
+
+
+"""
+DECK MODEL
+"""
+
+
+class Deck(models.Model):
+
+    user = models.ForeignKey(User_Profile, on_delete=models.CASCADE)
+
+    title = models.CharField(max_length=200)
+
+    description = models.TextField()  # Text field instead of ImageField
+
+    public= models.BooleanField(default=False)
+
+    CATEGORY_CHOICES=[
+
+        ('Science','Science'),
+        ('Technology','Technology'),
+        ('Engineering','Engineering'),
+        ('Mathematics','Mathematics'),
+        ('History','History'),
+        ('Literature','Literature'),
+        ('Languages','Languages'),
+        ('Arts','Arts'),
+        ('Health and Medicine','Health & Medicine'),
+        ('Programming','Programming'),
+        ('Misc','Misc.'),
+        
+    ]
+
+    category= models.CharField(max_length=25, default='Misc', choices=CATEGORY_CHOICES)
+
+
+
+    def __str__(self):
+
+        return self.title
+
+

@@ -20,11 +20,6 @@ from django.contrib.auth.models import User
 
 from django.urls import reverse
 
-
-User = get_user_model()
-
-
-
 def home(request):
 
     """_____I imported OrderedDict and created an instance of a dictionary of the Deck.Category choices
@@ -34,5 +29,24 @@ def home(request):
 
     """
 
+    user_decks = Deck.objects.all()
 
-    return render(request, 'home.html')
+    public_decks_by_category = {}
+
+    category_choices_dict = dict(Deck.CATEGORY_CHOICES)
+
+    sorted_categories = OrderedDict(sorted(category_choices_dict.items(), key=lambda key: key[1]))
+
+    for category in sorted_categories.keys():
+
+        public_decks_by_category[category] = Deck.objects.filter(public=True, category=category).order_by('category')
+
+
+    return render(request, 'home.html', {
+
+        'user_decks': user_decks,
+
+        'public_decks_by_category': public_decks_by_category,
+
+    })
+
