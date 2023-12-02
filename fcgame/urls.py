@@ -1,9 +1,3 @@
-"""
-ROOT URLS.PY
-
-"""
-
-
 from django.contrib import admin
 
 from django.urls import path, include
@@ -17,7 +11,7 @@ urlpatterns = [
 
     path("", include("flashcardgameapp.urls")),
 
-    
+    path('admin/', admin.site.urls),
 
     path('accounts/', include('django.contrib.auth.urls')),
 
@@ -30,4 +24,7 @@ urlpatterns = [
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
 
 ]
+
+
+
 

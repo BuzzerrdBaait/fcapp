@@ -1,6 +1,3 @@
-from django.db import models
-
-# Create your models here.
 import secrets
 
 import string
@@ -8,6 +5,12 @@ import string
 from django.contrib.auth.models import AbstractUser, Group, Permission
 
 from django.db import models
+
+
+
+
+                
+
 
 
 
@@ -62,10 +65,6 @@ class User_Profile(AbstractUser):
 
 
 
-"""
-DECK MODEL
-"""
-
 
 class Deck(models.Model):
 
@@ -100,5 +99,44 @@ class Deck(models.Model):
     def __str__(self):
 
         return self.title
+
+
+
+class Card(models.Model):
+
+
+    deck = models.ForeignKey(Deck, on_delete=models.CASCADE)
+
+    question = models.TextField()
+
+    answer = models.TextField() 
+
+
+    def __str__(self):
+
+        return f"Card {self.pk} of {self.deck.title}"
+    
+
+class WebImgs(models.Model):
+
+    title= models.CharField(max_length=32,blank=True)
+
+    image= models.ImageField(upload_to='web_imgs/')
+
+    def save(self, *args, **kwargs):
+
+        super().save(*args, **kwargs)
+
+
+
+class Contact(models.Model):
+
+    name = models.CharField(max_length=100)
+
+    email = models.EmailField()
+
+    message = models.TextField()
+
+    current_date = models.DateTimeField(auto_now_add=True)
 
 

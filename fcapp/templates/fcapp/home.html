@@ -18,6 +18,77 @@
 
 <body>
 
+    {% if request.user.is_authenticated %}
+
+
+    <div class="main-content">
+
+        <nav>
+    
+          <div class="row">
+    
+            <a href="{% url 'logout'%}">Log out</a>
+    
+          </div>
+    
+          <div class="row">
+    
+            <a href="{% url 'user_profile' request.user.pk %}">Your Profile</a>
+    
+            <a href="{% url 'contact'%}">Contact</a>
+    
+          </div>
+    
+          <div class="row">
+    
+            <a href="{% url 'clep'%}">CLEP</a>
+    
+          </div>
+    
+        </nav>
+
+
+    {% else %}
+
+    <div class="main-content">
+
+        <nav>
+    
+          <div class="row">
+    
+            <a href="{% url 'login' %}">Login</a>
+    
+          </div>
+    
+          <div class="row">
+    
+            <a href="{% url 'about_us'%}">About Us</a>
+    
+            <a href="{% url 'contact'%}">Contact</a>
+    
+          </div>
+    
+          <div class="row">
+    
+            <a href="{% url 'clep'%}">CLEP</a>
+    
+          </div>
+    
+        </nav>
+    
+    {% endif %}
+
+
+
+    {% if request.user.is_authenticated %}
+
+        <div class="hero">
+
+        <p>Thank you for your support!</p>
+            
+        </div>
+    {% else %}
+
         <div class="list-container">
 
         <div class="hero">
@@ -32,6 +103,7 @@
 
             <li><p>get started today!</p></li>
       
+            <a href="{% url 'register' %}" class="call-to-action">Create account</a>
 
             </ul>
 
@@ -41,7 +113,7 @@
        
         </div>
 
-
+    {%endif%}
 
 
     
@@ -66,8 +138,13 @@
                     <ul>
     
                         {% for deck in decks %}
-
-                        <p>{{deck.title}}</p>
+    
+                            <li>
+    
+                                <a href="{% url 'view_deck' deck.id %}">{{ deck.title }}</a>
+    
+                            </li>
+    
                         {% endfor %}
     
                     </ul>
