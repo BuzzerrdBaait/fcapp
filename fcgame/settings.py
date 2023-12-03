@@ -15,10 +15,7 @@ SETTINGS ADDED FROM HEROKU DOCS
 ####################   B E G I N   ##########################
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.environ.get(
-    "DJANGO_SECRET_KEY",
-    default=secrets.token_urlsafe(nbytes=64),
-)
+SECRET_KEY = os.environ.get('DJANGO_SECRET')
 
 
 IS_HEROKU_APP = "DYNO" in os.environ and not "CI" in os.environ
@@ -69,7 +66,6 @@ STATIC_URL = '/static/'
 INSTALLED_APPS = [
 
     'fcapp',
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
