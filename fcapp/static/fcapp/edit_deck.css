@@ -7,9 +7,15 @@ form {
      
      form label {
      
-     display: block;
+     display: flex;
+
+     justify-content: center;
+
+     align-items: center;
      
      margin-bottom: 5px;
+
+     font-size: large;
      
      color: #373737;
      
@@ -21,7 +27,10 @@ form {
 
      font-family:'Market Felt', sans-serif;
      
-     width: 25%;
+     width: 35%;
+
+     min-width: 400px;
+
      
 
      padding: 10px;
@@ -50,6 +59,8 @@ form {
      font-family:'Market Felt', sans-serif;
      
      width: 38%;
+
+     min-width: 400px;
 
      padding: 10px;
      
@@ -164,14 +175,6 @@ form {
      }
      
      
-     
- 
-     
-     form label {
-     
-         text-align: left;
-     
-     }
-     
+
      
 
