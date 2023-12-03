@@ -45,7 +45,7 @@ class User_Profile(AbstractUser):
 
 
 
-    authentication_link = models.CharField(max_length=50,unique=True, default=generate_unique_link())
+    authentication_link = models.CharField(max_length=50,unique=True, default=generate_unique_link(self))
 
 
 
