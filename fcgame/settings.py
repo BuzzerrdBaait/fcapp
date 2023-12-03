@@ -26,7 +26,7 @@ if not IS_HEROKU_APP:
 
 
 if IS_HEROKU_APP:
-    DEBUG=True
+    DEBUG=False
     ALLOWED_HOSTS = ["*"]
 else:
     ALLOWED_HOSTS = []
@@ -179,6 +179,13 @@ USE_I18N = True
 
 USE_TZ = True
 
+"""
+SSL SETTINGS for Django Projects
+"""
+############################################################
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+############################################################
 
 
 STATIC_URL = 'static/'
