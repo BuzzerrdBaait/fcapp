@@ -40,12 +40,15 @@ class User_Profile(AbstractUser):
         link = link.replace('"', str(secrets.randbelow(1000)))
 
         return link
+    
+
+    auth_link=generate_unique_link()
 
 
 
 
 
-    authentication_link = models.CharField(max_length=50,unique=True, default=generate_unique_link(self))
+    authentication_link = models.CharField(max_length=50,unique=True, default=auth_link)
 
 
 
