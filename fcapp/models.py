@@ -9,11 +9,6 @@ from django.db import models
 
 
 
-                
-
-
-
-
 class User_Profile(AbstractUser):
     
     email= models.CharField(max_length=40,blank=True,null=True, unique=True)
