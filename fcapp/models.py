@@ -88,6 +88,8 @@ class Deck(models.Model):
         ('Arts','Arts'),
         ('Health and Medicine','Health & Medicine'),
         ('Programming','Programming'),
+        ('Lifeskills','Lifeskills/Self Help'),
+        ('CLEP', 'CLEP Exams'),
         ('Misc','Misc.'),
         
     ]
