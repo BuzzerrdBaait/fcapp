@@ -22,15 +22,27 @@ IS_HEROKU_APP = "DYNO" in os.environ and not "CI" in os.environ
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if not IS_HEROKU_APP:
+
+    print("not a heroku app")
     DEBUG = True
 
 
 if IS_HEROKU_APP:
+
+    print("heroku app true?")
     DEBUG=True
     ALLOWED_HOSTS = ["*"]
+    """
+    SSL SETTINGS for Django Projects
+    """
+    ############################################################
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SECURE_SSL_REDIRECT = True
+    ############################################################
+
 else:
     ALLOWED_HOSTS = []
-######################## E N D  ##############################
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -116,10 +128,14 @@ SCHEMA_NAME='fcapp'
 DB_USER= os.environ.get('DB_USER')
 DB_PASSWORD= os.environ.get('DB_PASSWORD')
 
+print("test test")
+
 
 
 ########## H E R O K U    B U L L S H I T #############
 if IS_HEROKU_APP:
+
+    print("is a herokue app is True")
 
 
     DATABASES = {
@@ -179,13 +195,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-"""
-SSL SETTINGS for Django Projects
-"""
-############################################################
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
-############################################################
+
 
 
 STATIC_URL = 'static/'
@@ -210,7 +220,6 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 ###############################################################
 
 
-#Taking out the email info because I dont want heroku to throw a god damn fit.
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

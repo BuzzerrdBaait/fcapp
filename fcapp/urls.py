@@ -36,6 +36,10 @@ urlpatterns = [
 
     path('login/', views.login_user, name='login'),
 
+    path('resume/', views.resume_page, name='resume'),
+
+    path('webinfo/', views.web_build_info, name='webinfo'),
+
     path('logout', auth_views.LogoutView.as_view(), name='logout'),
 
     path('admin/', admin.site.urls),

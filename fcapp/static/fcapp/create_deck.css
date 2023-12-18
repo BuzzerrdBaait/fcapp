@@ -6,12 +6,18 @@ form {
      }
      
      form label {
-     
-     display: block;
-     
-     margin-bottom: 5px;
-     
-     color: #373737;
+        display: flex;
+
+        justify-content: center;
+   
+        align-items: center;
+        
+        margin-bottom: 5px;
+   
+        font-size: large;
+        
+        color: #373737;
+        
      
      }
      
@@ -22,11 +28,12 @@ form {
      
      width: 25%;
      
+     min-width: 200px;
      padding: 10px;
      
      margin-bottom: 15px;
      
-     box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.5);
+     
      
      border: 5px solid transparent;
      
@@ -39,7 +46,13 @@ form {
      box-sizing: border-box;
      
      }
-     
+
+
+     form input[name="title"]{
+
+        box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.5);
+        
+     }
      
      form textarea{
      font-size: large;
@@ -47,6 +60,8 @@ form {
      font-family:'Market Felt', sans-serif;
      
      width: 50%;
+
+     min-width: 400px;
      
      padding: 10px;
      
@@ -73,6 +88,8 @@ form {
      font-family:'Market Felt', sans-serif;
      
      width: 25%;
+
+     min-width: 200px;
      
      padding: 10px;
      

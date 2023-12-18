@@ -472,8 +472,6 @@ def authenticate_user(request, authentication_link):
 
             if authentication_key == user_profile.authentication_key:
 
-                # Update the is_verified field
-
                 user_profile.is_verified = 'Y'
 
                 user_profile.save()
@@ -489,6 +487,28 @@ def authenticate_user(request, authentication_link):
 
 
     return render(request, 'auth.html', {'form': form, 'user_profile': user_profile})
+
+
+def resume_page(request):
+
+    print("Resume page viewed")
+
+    return render(request, 'resume.html')
+
+
+def web_build_info(request):
+
+    images=WebImgs.objects.all()
+
+    display1=images[5]
+    display2=images[6]
+    #display3=images[7]
+
+    return render(request, 'web_dev_info.html',{'img1':display1,'img2':display2})
+
+
+
+
 
 
 
