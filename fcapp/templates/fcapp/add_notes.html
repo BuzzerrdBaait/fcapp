@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+<body>
+
+
+     
+          {% block content %}
+
+          <h1>Add Notes to {{ deck.title }}</h1>
+
+
+
+          <form method="post" action="{% url 'add_notes' deck.id %}">
+
+          {% csrf_token %}
+
+          {{ form.as_p }}
+
+          <button type="submit">Add Notes</button>
+
+          </form>
+
+
+
+          <a href="{% url 'view_deck' deck.id %}">Back to Deck</a>
+
+          {% endblock %}
+     
+</body>
+</html>

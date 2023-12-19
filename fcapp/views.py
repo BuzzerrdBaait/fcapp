@@ -7,16 +7,18 @@ from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRe
 from django.core.mail import send_mail
 from django.conf import settings
 from django.views import View 
-from .models import User_Profile,Deck, Card,WebImgs, Contact
+from .models import User_Profile,Deck, Card,WebImgs, Contact,Note
 from django.http import HttpResponse
 from .forms import Registration
 from django.http import HttpResponseForbidden
 from django.contrib.auth.decorators import login_required
-from .forms import DeckForm, CardForm, DeleteCardForm, DeleteDeckForm
+from .forms import DeckForm, CardForm, DeleteCardForm, DeleteDeckForm,NoteForm
 from collections import OrderedDict
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 from .forms import ContactForm
+
+from django.contrib import messages
 
 from django.urls import reverse
 
@@ -231,7 +233,51 @@ def create_deck(request):
 
 
 
+####################################
 
+@login_required
+
+def add_notes(request, deck_id):
+
+    deck = get_object_or_404(Deck, id=deck_id)
+
+
+
+    # Check if the user is the owner of the deck
+
+    if request.user == deck.user:
+
+        if request.method == 'POST':
+
+            form = NoteForm(request.POST)
+
+
+
+            if form.is_valid():
+
+                notes = form.cleaned_data['notes']
+
+                Note.objects.create(deck=deck, notes=notes)
+
+                messages.success(request, 'Notes added successfully!')
+
+                return redirect('view_deck', deck_id=deck.id)
+
+        else:
+
+            form = NoteForm()
+
+
+
+        return render(request, 'add_notes.html', {'form': form, 'deck': deck})
+
+    else:
+
+        messages.error(request, 'You do not have permission to add notes to this deck.')
+
+        return redirect('view_deck', deck_id=deck.id)
+
+##################################
 
 def view_deck(request, deck_id):
 

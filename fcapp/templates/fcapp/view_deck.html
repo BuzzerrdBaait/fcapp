@@ -49,6 +49,8 @@
 
                 <a href="{% url 'home' %}">Go Home</a>
 
+                <a href="{%url 'add_notes' deck.id%}">Add Note</a>
+
                 <a href="{% url 'user_profile' request.user.pk %}">Your Profile</a>
 
             </div>

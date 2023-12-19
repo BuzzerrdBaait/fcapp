@@ -101,7 +101,21 @@ class Deck(models.Model):
     def __str__(self):
 
         return self.title
+    
 
+class Note(models.Model):
+
+        deck = models.ForeignKey(Deck, on_delete=models.CASCADE)
+
+        user = models.ForeignKey(User_Profile, on_delete=models.CASCADE)
+
+        note = models.TextField()
+
+
+
+        def __str__(self):
+
+            return f"Note {self.pk} of {self.deck.title}"
 
 
 class Card(models.Model):

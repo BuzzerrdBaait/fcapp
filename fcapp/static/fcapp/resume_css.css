@@ -1,108 +1,20 @@
+container {
 
+    display: flex;
 
- .carousel-container {
+    flex-wrap: wrap;
 
-     display: flex;
+    justify-content: space-between;
 
-     flex-direction: column;
+    gap: 20px;
 
-     align-items: center;
+    padding: 20px;
 
-     justify-content: left;
+    max-width: 1200px;
 
-     background: linear-gradient(127deg,  #ffffff 25%, #ffffff 60%,  #143a69 75%);
+    margin: 0 auto;
 
-     height: fit-content;
-
-     overflow: hidden;
-     width:98%;
-
-     margin-top: 10px;
-     margin-bottom:10px;
-     margin-left:10px;
-     margin-right:10px;
-     white-space: nowrap; /* Prevent label wrapping */
-
-
-
- }
-
-
- .carousel-item {
-
-    justify-content: center;
-
-     display: inline-block;
-     flex: 0 0 auto; /* Ensure labels don't expand */
-
-     width: 93%; /* Adjust the width as needed */
-
-     background-color: #fff;
-
-     padding: 20px;
-
-     border-radius: 10px;
-
-     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-
-     text-align: center;
-
-     overflow-y: auto;
-
-     height: fit-content; 
-
- }
-
- .page {
-
-   justify-content: center;
-   vertical-align: top;
-
-   align-items: top;
-
-   display: inline-block;
-
-   width: fit-content;
-
-   padding: 20px;
-
-   border-radius: 10px;
-
-   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-
-   text-align: left;
-   
-   height: fit-content; 
-
-   margin: 0 10px;
-
-}
-
-
-.page p {
-
-margin-top: 0;
-
-}
-
-
-.container {
-
-display: grid;
-
-grid-template-columns: repeat(2, 1fr);
-background: rgba(255, 255, 255, 0);
-
-grid-gap: 20px;
-
-padding: 20px;
-
-max-width: 1200px;
-
-margin: 0 auto;
-
-
-width: 95%;
+    width: 95%;
 
 }
 
@@ -110,47 +22,70 @@ width: 95%;
 
 .column {
 
-padding: 20px;
+    flex: 1;
 
+    min-width: 48%; /* Adjust as needed */
 
-border: 1px solid #ccc;
+    max-width: 48%; /* Adjust as needed */
 
+    border: 1px solid #ccc;
 
+    background-color: #fff;
 
-background-color: #fff;
+    box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.5);
 
-box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.5);
+    padding: 20px;
 
-}
-
-
-
-.column h2 {
-
-font-size: 1.5rem;
-
-margin-bottom: 10px;
+    margin-bottom: 20px;
 
 }
 
 
 
-.column p {
+.column:nth-child(1),
 
-font-size: 1rem;
+.column:nth-child(2) {
 
-line-height: 1.4;
+    min-width: 100%;
+
+    max-width: 100%;
+
+}
+
+
+
+.column:nth-child(3),
+
+.column:nth-child(4) {
+
+    min-width: 100%;
+
+    max-width: 100%;
 
 }
 
 
 
-@media (max-width: 768px) {
+.column:nth-child(5),
 
-.container {
+.column:nth-child(6) {
 
- grid-template-columns: 1fr;
+    min-width: 48%;
+
+    max-width: 48%;
 
 }
+
+
+
+@media only screen and (max-width: 768px) {
+
+    .column {
+
+        min-width: 100%; /* Make columns full width on smaller screens */
+
+        max-width: 100%;
+
+    }
 
 }

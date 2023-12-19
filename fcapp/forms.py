@@ -27,6 +27,20 @@ class DeckForm(forms.ModelForm):
 
         }
 
+
+class NoteForm(forms.ModelForm):
+
+        class Meta:
+
+            model = Note
+
+            fields = ['note']
+
+            widgets={
+                'note':
+                forms.Textarea(attrs={'rows':3})
+            }
+
 class CardForm(forms.ModelForm):
 
     class Meta:
