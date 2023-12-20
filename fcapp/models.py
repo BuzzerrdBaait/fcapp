@@ -103,19 +103,67 @@ class Deck(models.Model):
         return self.title
     
 
+
+
+
+from django.utils import timezone
+
+from django.db.models.signals import pre_delete
+
+from django.dispatch import receiver
+
+
+
 class Note(models.Model):
 
-        deck = models.ForeignKey(Deck, on_delete=models.CASCADE)
+    deck = models.ForeignKey(Deck, on_delete=models.CASCADE)
 
-        user = models.ForeignKey(User_Profile, on_delete=models.CASCADE)
+    user = models.ForeignKey(User_Profile, on_delete=models.CASCADE)
 
-        note = models.TextField()
+    note = models.TextField()
+
+    date = models.DateTimeField(default=timezone.now())
+
+    title = models.CharField(max_length=255, blank=True, null=True)
 
 
 
-        def __str__(self):
+    def save(self, *args, **kwargs):
 
-            return f"Note {self.pk} of {self.deck.title}"
+        if not self.pk:  # Only update on new note creation
+
+            note_count_in_deck = Note.objects.filter(deck=self.deck).count() + 1
+
+            self.title = f"Note {note_count_in_deck} of {self.deck.title}"
+
+        super().save(*args, **kwargs)
+
+
+
+    def __str__(self):
+
+        return self.title
+
+
+
+@receiver(pre_delete, sender=Note)
+
+def update_note_titles_on_delete(sender, instance, **kwargs):
+
+    remaining_notes = Note.objects.filter(deck=instance.deck).exclude(pk=instance.pk).order_by('pk')
+
+    for index, note in enumerate(remaining_notes, start=1):
+
+        note.title = f"Note {index} of {note.deck.title}"
+
+        note.save()
+
+
+
+
+
+
+
 
 
 class Card(models.Model):

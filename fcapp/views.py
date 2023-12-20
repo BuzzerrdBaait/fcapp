@@ -255,9 +255,9 @@ def add_notes(request, deck_id):
 
             if form.is_valid():
 
-                notes = form.cleaned_data['notes']
+                notes = form.cleaned_data['note']
 
-                Note.objects.create(deck=deck, notes=notes)
+                Note.objects.create(deck=deck,user=request.user, note=notes)
 
                 messages.success(request, 'Notes added successfully!')
 
@@ -295,6 +295,8 @@ def view_deck(request, deck_id):
 
     back=images[4]
 
+    notes = Note.objects.filter(deck=deck)
+
     cards = Card.objects.filter(deck=deck)
 
     delete_deck_form = DeleteDeckForm() 
@@ -326,7 +328,7 @@ def view_deck(request, deck_id):
 
 
 
-    return render(request, 'view_deck.html', {'deck': deck, 'cards': cards, 'delete_card_form': delete_card_form, 'flip_button':flip_button, 'left':left,'right': right,'flashcard':flashcard, 'back':back})
+    return render(request, 'view_deck.html', {'deck': deck, 'cards': cards, 'delete_card_form': delete_card_form, 'flip_button':flip_button, 'left':left,'right': right,'flashcard':flashcard, 'back':back, 'notes':notes})
 
 @login_required
 

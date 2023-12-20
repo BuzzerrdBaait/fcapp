@@ -38,7 +38,7 @@ class NoteForm(forms.ModelForm):
 
             widgets={
                 'note':
-                forms.Textarea(attrs={'rows':3})
+                forms.Textarea(attrs={'rows':15})
             }
 
 class CardForm(forms.ModelForm):

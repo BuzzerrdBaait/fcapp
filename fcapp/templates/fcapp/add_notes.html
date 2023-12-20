@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+     {%load static%}
+     <link rel="stylesheet" type="text/css" href="{% static 'css.css' %}">
+     <link rel="stylesheet" type="text/css" href="{% static 'add_note.css' %}">
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Document</title>
@@ -8,10 +12,24 @@
 <body>
 
 
+     <style>
+
+
+
+     </style>
+
+
      
           {% block content %}
 
-          <h1>Add Notes to {{ deck.title }}</h1>
+
+          <div class="text-container">
+
+               <h1>Add Notes to {{ deck.title }}</h1>
+       
+           </div>
+
+        
 
 
 
@@ -30,6 +48,6 @@
           <a href="{% url 'view_deck' deck.id %}">Back to Deck</a>
 
           {% endblock %}
-     
+
 </body>
 </html>
