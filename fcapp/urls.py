@@ -28,6 +28,10 @@ urlpatterns = [
 
     path('create_card/<int:deck_id>/', views.create_card, name='create_card'),
 
+    path('edit_card/<int:card_id>/', views.edit_card, name='edit_card'),
+
+    path('edit_note/<int:note_id>/', views.edit_note, name='edit_note'),
+
     path('profile/<int:user_pk>/', views.user_profile_view, name='user_profile'),
 
     path('about', views.about_us, name='about_us'),

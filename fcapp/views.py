@@ -334,10 +334,6 @@ def view_deck(request, deck_id):
 
 def create_card(request, deck_id):
 
-    # Create a new flashcard within a 
-    
-    print("BEFORE DECK TRIGGERED")
-
     deck = Deck.objects.get(id=deck_id)
 
     if request.method == 'POST':
@@ -377,6 +373,57 @@ def create_card(request, deck_id):
         form = CardForm()
 
     return render(request, 'create_card.html', {'form': form, 'deck': deck})
+
+
+
+#####################  EDIT CARDS, NOTES, AND DECK ##################
+
+
+@login_required
+
+def edit_card(request, card_id):
+
+       card = get_object_or_404(Card, id=card_id, deck__user=request.user)
+
+       if request.method == 'POST':
+
+           form = CardForm(request.POST, instance=card)
+
+           if form.is_valid():
+
+               form.save()
+
+               return redirect('view_deck', deck_id=card.deck.id)
+
+       else:
+
+           form = CardForm(instance=card)
+
+       return render(request, 'edit_card.html', {'form': form, 'card': card})
+
+
+
+@login_required
+
+def edit_note(request, note_id):
+
+       note = get_object_or_404(Note, id=note_id, user=request.user)
+
+       if request.method == 'POST':
+
+           form = NoteForm(request.POST, instance=note)
+
+           if form.is_valid():
+
+               form.save()
+
+               return redirect('view_deck', deck_id=note.deck.id)
+
+       else:
+
+           form = NoteForm(instance=note)
+
+       return render(request, 'edit_note.html', {'form': form, 'note': note})
 
 
 

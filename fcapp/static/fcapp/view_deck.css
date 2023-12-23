@@ -1,5 +1,3 @@
-
-
 .card-container {
 
      perspective: 1000px;
@@ -186,19 +184,15 @@
      
      }
      
-     
-     
-     
-     
      .navmenu button.deletebutton{
      
          background-color:rgb(232, 6, 6);
                border:2px solid rgb(177, 4, 4);
                color:rgb(255, 255, 255);
+               box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.5);
      }
-     
-     
-     
+
+
      .navmenu button:hover {
      
      transform: scale(0.95);
@@ -209,3 +203,136 @@
      }
          
      
+
+     .edit-link {
+
+      display: inline-block;
+
+      padding: 8px 16px;
+
+      background-color: #ffc107;
+
+      color: #212529; 
+
+      text-decoration: none;
+
+      border: 2px solid #dea806; 
+
+      border-radius: 5px; 
+
+      transition: all 0.3s ease-in-out; 
+
+      box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.5);
+
+  }
+
+
+
+  .edit-link:hover {
+
+      border: 2px solid #ffc107; 
+
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+
+      transform: scale(0.95); 
+
+  }
+
+
+
+
+  .center-content {
+
+      text-align: center;
+
+      margin-top: 200px;
+
+
+      padding: 25px 20px;
+
+      }
+
+  .center-notes{
+
+      
+      text-align: center;
+
+
+      padding: 25px 20px;
+
+
+  }
+
+  .note-container {
+
+      display: inline-block;
+
+      background-color: #dfdfdf;
+
+      width: 95%;
+      max-width: 95%;
+
+      text-align: center;
+
+      padding-left:15px;
+
+      padding-right:15px;
+
+      word-wrap: break-word;
+
+      overflow: hidden;
+
+
+      box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.5);
+
+      }
+
+      .note-container p{
+
+          width: fit-content;
+
+          text-align: left;
+      }
+
+.notes-style{
+
+
+  font-size: 25px;
+  font-style: italic;
+  font-family:'Market Felt', sans-serif;
+  width: fit-content;
+
+  max-width: 95%;
+
+  min-width: 25%;
+  border-radius: 5px 5px 5px 5px;
+
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.5);
+
+  padding:5px;
+  background-color: #bfbebe;
+
+
+
+  white-space: pre-line;
+  
+  line-height: 1.3;
+  
+  word-wrap: break-word;
+  
+  overflow: hidden;
+}
+
+
+.notes-style:hover{
+
+
+
+  background-color: #ffffff;
+}
+
+
+      
+
+
+
