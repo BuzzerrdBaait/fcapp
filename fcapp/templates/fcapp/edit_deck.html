@@ -35,30 +35,27 @@
         </nav>
 
 
-    
-<form method="post">
+        <form method="post">
 
-    {% csrf_token %}
+            {% csrf_token %}
 
-    {{ form.as_p }}
+            {{ form.as_p }}
 
+            <button type="submit" class="save_changes">Save Changes</button>
 
-
-    <button type="submit">Save Changes</button>
-
-    <form method="post">
-
-        {% csrf_token %}
-
-        {{ delete_deck_form.as_p }}
-
-        <button type="submit" class="delete_button">Delete Deck</button>
-
-    </form>
+        </form>
 
 
-</form>
-    
+
+        <form method="post">
+
+            {% csrf_token %}
+
+            {{ delete_deck_form.as_p }}
+
+            <button type="submit" class="delete_button">Delete Deck</button>
+
+        </form>
 
 
 </body>
