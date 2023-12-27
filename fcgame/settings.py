@@ -31,6 +31,8 @@ if IS_HEROKU_APP:
 
     print("heroku app true?")
     DEBUG=False
+
+    print(f"debug status == {DEBUG}")
     ALLOWED_HOSTS = ["*"]
     """
     SSL SETTINGS for Django Projects
@@ -67,7 +69,7 @@ DJANGO_STATIC = True
 
 DJANGO_STATIC_FILE_PROXY = 'cloudfront.file_proxy'
 
-COMPRESS_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#COMPRESS_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 COMPRESS_ENABLED= True
 COMPRESS_URL= CLOUDFRONT_URL
 
@@ -201,6 +203,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'fcapp', 'static','fcapp')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static', 'fcapp')
+
+print(f'Static root is == {STATIC_ROOT}')
 
 
 
