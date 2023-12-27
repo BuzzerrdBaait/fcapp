@@ -202,7 +202,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'fcapp', 'static','fcapp')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static', 'fcapp')
+STATIC_ROOT = os.path.join(BASE_DIR,'fcapp', 'static', 'fcapp')
 
 print(f'Static root is == {STATIC_ROOT}')
 
