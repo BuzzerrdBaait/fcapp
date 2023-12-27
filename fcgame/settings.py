@@ -30,7 +30,7 @@ if not IS_HEROKU_APP:
 if IS_HEROKU_APP:
 
     print("heroku app true?")
-    DEBUG=True
+    DEBUG=False
     ALLOWED_HOSTS = ["*"]
     """
     SSL SETTINGS for Django Projects
