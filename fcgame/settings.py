@@ -204,19 +204,19 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static', 'fcapp')
 
 
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 ########### H E R O K U    B U L L S H I T ####################
-#STORAGES = {
+STORAGES = {
     # Enable WhiteNoise's GZip and Brotli compression of static assets:
     # https://whitenoise.readthedocs.io/en/latest/django.html#add-compression-and-caching-support
-#    "staticfiles": {
-#        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-#
-#        
-#    },
-#}
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+
+        
+    },
+}
 ###############################################################
 
 
