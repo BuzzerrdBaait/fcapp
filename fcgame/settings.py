@@ -30,7 +30,7 @@ if not IS_HEROKU_APP:
 if IS_HEROKU_APP:
 
     print("heroku app true?")
-    DEBUG=True
+    DEBUG=False
     ALLOWED_HOSTS = ["*"]
     """
     SSL SETTINGS for Django Projects
@@ -208,15 +208,15 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 ########### H E R O K U    B U L L S H I T ####################
-#STORAGES = {
-#    # Enable WhiteNoise's GZip and Brotli compression of static assets:
-#    # https://whitenoise.readthedocs.io/en/latest/django.html#add-compression-and-caching-support
-#    "staticfiles": {
-#        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-#
-#        
-#    },
-#}
+STORAGES = {
+    # Enable WhiteNoise's GZip and Brotli compression of static assets:
+    # https://whitenoise.readthedocs.io/en/latest/django.html#add-compression-and-caching-support
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+
+        
+    },
+}
 ###############################################################
 
 
