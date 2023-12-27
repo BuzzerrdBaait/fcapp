@@ -30,7 +30,7 @@ if not IS_HEROKU_APP:
 if IS_HEROKU_APP:
 
     print("heroku app true?")
-    DEBUG=False
+    DEBUG=True
 
     print(f"debug status == {DEBUG}")
     ALLOWED_HOSTS = ["*"]
