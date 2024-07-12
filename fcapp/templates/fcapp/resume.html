@@ -46,6 +46,7 @@
         .front, .back {
             width: 100%;
             position: absolute;
+            font-family: 'Times New Roman', Times, serif;
             backface-visibility: hidden;
             display: flex;
             flex-direction: column;
@@ -55,7 +56,7 @@
             box-sizing: border-box;
             border-radius: 10px; /* Rounded corners for paper effect */
             overflow-y: auto; /* Enable scrolling if content exceeds box height */
-            scrollbar-width: thin; /* Thin scrollbar style (for Firefox) */
+        
             scrollbar-color: #888 #555; /* Scrollbar color */
             background: linear-gradient(135deg, #2c2c2c, #1d1d1d); /* Dark gradient background */
             color: #fff; /* Text color */
@@ -74,6 +75,7 @@
 
         .links, button {
           background-color: #f0cf12;
+          font-family: 'Times New Roman', Times, serif;
 
           width: fit-content;
           color: #1d1d1d;
@@ -96,8 +98,9 @@
         }
 
         button {
-            background-color: #f0cf12; /* Yellow for Batman's utility belt */
-            color: #1d1d1d; /* Dark background color */
+            background-color: #f0cf12;
+            font-family: 'Times New Roman', Times, serif;
+            color: #1d1d1d;
             border: none;
             padding: 10px 20px;
             cursor: pointer;
@@ -126,7 +129,7 @@
             font-family: 'Times New Roman', Times, serif;
             width: 75%;
             text-wrap: wrap;
-            text-align: justify; /* Justify text for better readability */
+            text-align: justify;
         }
 
         table {
@@ -198,7 +201,6 @@
                    </div>
                </div>
 
-            <!-- Back side (Full Resume) -->
             <div class="back" id="full-resume">
                 <div class="button-container">
                     <button onclick="flipBack()">Back to Cover Letter</button>
@@ -260,8 +262,8 @@
                         <th>Skills</th>
                         <td>
                             <strong>Technical:</strong><br>
-                            <p>Python [4 years] countless apps, Django [1.5 years] urls/models/views/forms/APIs/datascraping, Configuring email forwarding (setting up business emails), AND MANY MORE!!</p>
-                            <br><br>
+                            <p>Python (4 years) countless apps, Django (1.5 years) urls/models/views/forms/APIs/datascraping, Configuring email forwarding (setting up business emails), AND MANY MORE!!</p>
+                            <br>
                             <strong>Soft skills:</strong><br>
                             <p>Integrity, Humility, Continuous improvement.</p>
                             
@@ -269,12 +271,15 @@
                     </tr>
                     <tr>
                         <th>Contact Information</th>
-                        <td>E-mail: admin@ilovecookbooks.org</td>
+
+
+                        <td><a href="mailto:admin@ilovecookbooks.org?subject=Programming%20Interview">Admin@ilovecookbooks.org</a>
+
+                        
                     </tr>
                     <tr>
                         <th>Education</th>
-                        <p>I am very close to have a two associates degrees. One for electrical distribution, and the other for Comp-Sci. I will graduate with a Bachelors of Computer Science in the Fall of 2026. I have a huge support through the VA to ensure that I do well in school and at work.</p>
-                        <td>Associates of Applied Science in Electrical Distribution<br>
+                            <td>Associates of Applied Science in Electrical Distribution<br>
                             Texas State Technical College.<br>
                             Associates Degree of Computer Science<br>
                             Paris Jr. College
