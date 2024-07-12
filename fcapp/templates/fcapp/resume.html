@@ -44,7 +44,7 @@
         }
 
         .front, .back {
-            width: 100%;
+            width: fit-content;
             position: absolute;
             font-family: 'Times New Roman', Times, serif;
             backface-visibility: hidden;
@@ -171,12 +171,16 @@
 <body>
 
     <div class="flip-container">
+
+
+
         <div class="flipper" id="flipper">
             <!-- Front side (Cover Letter and About Me) -->
             <div class="front">
                 <div class="button-container">
                     <button onclick="flipContent()">View Full Resume</button>
                 </div>
+                
                 <div class="covertext">
                 <h1>Cover Letter</h1>
                 <p>Woooohoooo! You made it this far!</p>
